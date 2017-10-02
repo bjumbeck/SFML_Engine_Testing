@@ -14,6 +14,8 @@ include_directories("${PROJECT_SOURCE_DIR}/source")
 set(SRCS 
     source/main.cpp
     source/Application/Application.cpp
+    source/Entity/Entity.cpp
+    source/Entity/EntityManager.cpp
 )
 
 # Build Info
