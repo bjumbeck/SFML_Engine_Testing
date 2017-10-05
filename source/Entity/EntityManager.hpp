@@ -6,11 +6,11 @@
 #include <bitset>
 #include <iterator>
 #include <algorithm>
+#include <tuple>
 
 #include "Helpers/MemoryPool.hpp"
 #include "Entity.hpp"
-
-class EventManager;
+#include "EventManagement/EventManager.hpp"
 
 const int MAX_COMPONENTS = 64;
 
@@ -30,7 +30,18 @@ class EntityManager : private sf::NonCopyable
         Entity getEntity(Entity::Id entityId);
         bool validEntity(Entity::Id id) const;
 
+        // Container Management
+        void reset();
+        size_t size() const { return entityComponentMasks.size() - freeIds.size(); }
+        size_t capacity() const { return entityComponentMasks.size(); }
+
         // Entity Component Management
+        template <typename CompType>
+        static BaseComponent::Family componentFamily() const
+        {
+            return Component<typename std::remove_const_t<CompType>>::family();
+        }
+
         template <typename CompType, typename ... Args>
         ComponentPtr<CompType> assignComponent(Entity::Id id, Args&& ... args)
         {
@@ -89,7 +100,7 @@ class EntityManager : private sf::NonCopyable
             return true;
         }
 
-        template <typename CompType, typename std::enable_if_t<!std::is_const<CompType>::value>
+        template <typename CompType, typename std::enable_if_t<!std::is_const<CompType>::value>>
         ComponentPtr<CompType> getComponent(Entity::Id id)
         {
             assertValidId(id);
@@ -109,9 +120,174 @@ class EntityManager : private sf::NonCopyable
             return ComponentPtr<CompType>(this, id);
         }
 
-        // Container Management
-        size_t size() const { return entityComponentMasks.size() - freeIds.size(); }
-        size_t capacity() const { return entityComponentMasks.size(); }
+        template <typename CompType, typename std::enable_if_t<std::is_const<CompType>::value>>
+        const ComponentPtr<CompType> getComponent(Entity::Id id)
+        {
+            assertValidId(id);
+
+            const BaseComponent::Family family = componentFamily<CompType>();
+            if (family >= componentPools.size())
+            {
+                return ComponentPtr<CompType, const EntityManager>();
+            }
+
+            BasePool* pool = componentPools[family];
+            if (!pool || !entityComponentMasks[id.index()][family])
+            {
+                return ComponentPtr<CompType, const EntityManager>();
+            }
+
+            return ComponentPtr<CompType, const EntityManager>(this, id);
+        }
+
+        template <typename ... Components>
+        std::tuple<ComponentPtr<Components>...> getComponents(Entity::Id)
+        {
+            return std::make_tuple(getComponent<Components>(id)...);
+        }
+
+        template <typename ... Components>
+        std::tuple<ComponentPtr<const Components, const EntityManager>...> getComponents(Entity::Id id) const
+        {
+            return std::make_tuple(getComponent<const Components>(id)...);
+        }
+
+        template <typename ... Components>
+        View getEntitiesWithComponents()
+        {
+            auto compMask = componentMask<Components...>();
+
+            return View(this, compMask);
+        }
+
+        template <typename ... Components>
+        UnpackingView<Components...> getEntitiesWithComponents(ComponentPtr<Components>& ... components)
+        {
+            auto compMask = componentMask<Components...>();
+
+            return UnpackingView<Components...>(this, compMask, components...);
+        }
+
+        template <typename CompType>
+        void unpack(Entity::Id id, ComponentPtr<CompType>& outputParam)
+        {
+            assertValidId(id);
+
+            outputParam = getComponent<CompType>(id);
+        }
+
+        template <typename CompOne, typename ... CompArgs>
+        void unpack(Entity::Id id, ComponentPtr<CompOne>& outputCompOne, ComponentPtr<CompArgs>& ... compArgs)
+        {
+            assertValidId(id);
+
+            outputCompOne = getComponent<CompOne>(id);
+            unpack<CompArgs...>(id, compArgs...);
+        }
+
+    private:
+        DebugView entitiesForDebugging()
+        {
+            return DebugView(this);
+        }
+
+        void assertValidId(Entity::Id id) const
+        {
+            assert(id.index() < entityComponentMasks.size() && "Entity::Id ~ ID is outside the entity vector range");
+            assert(entityVersions[id.index()] == id.version() && "Entity::Id ~ Trying to access an Entity through an old(Invalid) Entity::Id");
+        }
+
+        template <typename CompType>
+        CompType* getComponentPtr(Entity::Id id) const
+        {
+            assertValidId(id);
+
+            BasePool* pool = componentPools[componentFamily<CompType>()];
+            assert(pool);
+
+            return static_cast<CompType*>(pool->get(id.index()));
+        }
+
+        template <typename CompType>
+        const CompType* getComponentPtr(Entity::Id id) const
+        {
+            assertValidId(id);
+
+            BasePool* pool = componentPools[componentFamily<CompType>()];
+            assert(pool);
+
+            return static_cast<const CompType*>(pool->get(id.index()));
+        }
+
+        ComponentMask componentMask(Entity::Id id)
+        {
+            assertValidId(id);
+
+            return entityComponentMasks.at(id.index());
+        }
+
+        template <CompType>
+        ComponentMask componentMask()
+        {
+            ComponentMask compMask;
+            compMask.set(componentFamily<CompType>());
+
+            return compMask;
+        }
+
+        template <typename CompType1, typename CompType2, typename ... CompTypeArgs>
+        ComponentMask componentMask()
+        {
+            return componentMask<CompType1>() | componentMask<CompType2, CompTypeArgs...>();
+        }
+
+        template <typename CompType>
+        ComponentMask componentMask(const ComponentPtr<CompType>& comp)
+        {
+            return componentMask<CompType>();
+        }
+
+        template <typename CompType1, typename ... CompTypeArgs>
+        ComponentMask componentMask(const ComponentPtr<CompType1>& compOne, const ComponentPtr<CompTypeArgs>& ... args)
+        {
+            return componentMask<CompType1, CompTypeArgs...>();
+        }
+
+        void accomodateComponent(uint32_t index)
+        {
+            if (entityComponentMasks.size() <= index)
+            {
+                entityComponentMasks.resize(index + 1);
+                entityVersions.resize(index + 1);
+
+                for (BasePool* pool : componentPools)
+                {
+                    if (pool)
+                    {
+                        pool->expand(index + 1);
+                    }
+                }
+            }
+        }
+
+        template <typename CompType>
+        Pool<CompType>* accomodateComponent()
+        {
+            BaseComponent::Family family = componentFamily<CompType>();
+            if (componentPools.size() <= family)
+            {
+                componentPools.resize(family + 1, nullptr);
+            }
+
+            if (!componentPools[family])
+            {
+                Pool<CompType>* pool = new Pool<CompType>();
+                pool->expand(indexCounter);
+                componentPools[family] = pool;
+            }
+
+            return static_cast<Pool<CompType>*>(componentPools[family]);
+        }
 
     private:
         friend class Entity;
