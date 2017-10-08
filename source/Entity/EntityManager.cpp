@@ -1,4 +1,5 @@
 #include "EntityManager.hpp"
+#include "EventManagement/Events/EntityEvents.hpp"
 
 EntityManager::EntityManager(EventManager& eventManager)
     : eventManager(eventManager)
@@ -64,7 +65,7 @@ Entity EntityManager::getEntity(Entity::Id entityId)
 {
     assertValidId(entityId);
 
-    return Entity(this, id);
+    return Entity(this, entityId);
 }
 
 bool EntityManager::validEntity(Entity::Id id) const
@@ -98,4 +99,44 @@ void EntityManager::reset()
     freeIds.clear();
 
     indexCounter = 0;
+}
+
+EntityManager::DebugView EntityManager::entitiesForDebugging()
+{
+    return DebugView(this);
+}
+
+void EntityManager::assertValidId(Entity::Id id) const
+{
+    assert(id.index() < entityComponentMasks.size() && "Entity::Id ~ ID is outside the entity vector range");
+    assert(entityVersions[id.index()] == id.version() && "Entity::Id ~ Trying to access an Entity through an old(Invalid) Entity::Id");
+}
+
+std::vector<EntityManager::ComponentMask> EntityManager::allComponentMasks() const
+{
+    return entityComponentMasks;
+}
+
+EntityManager::ComponentMask EntityManager::componentMask(Entity::Id id)
+{
+    assertValidId(id);
+
+    return entityComponentMasks.at(id.index());
+}
+
+void EntityManager::accomodateComponent(uint32_t index)
+{
+    if (entityComponentMasks.size() <= index)
+    {
+        entityComponentMasks.resize(index + 1);
+        entityVersions.resize(index + 1);
+
+        for (BasePool* pool : componentPools)
+        {
+            if (pool)
+            {
+                pool->expand(index + 1);
+            }
+        }
+    }
 }

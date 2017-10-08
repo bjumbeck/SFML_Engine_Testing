@@ -16,7 +16,7 @@ std::size_t EventManager::connectReceivers() const
     return size;
 }
 
-std::shared_ptr<EventSignal>& signalFor(std::size_t handlerId)
+std::shared_ptr<EventSignal>& EventManager::signalFor(std::size_t handlerId)
 {
     if (handlerId >= eventHandlers.size())
     {

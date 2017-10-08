@@ -5,6 +5,7 @@
 #include <vector>
 #include <functional>
 #include <unordered_map>
+#include <utility>
 #include <SFML/System/NonCopyable.hpp>
 #include "SimpleSignal.hpp"
 
@@ -29,7 +30,7 @@ class EventManager : private sf::NonCopyable
         void emit(std::unique_ptr<EventType> event);
 
         template <typename EventType, typename ... EventArgs>
-        void emit(Args&& ... args);
+        void emit(EventArgs&& ... args);
 
         std::size_t connectReceivers() const;
 
@@ -43,17 +44,17 @@ class EventManager : private sf::NonCopyable
             void operator()(const void* event) { callback( *(static_cast<const EventType*>(event))); }
 
             std::function<void (const EventType&)> callback;
-        }
+        };
 
     private:
-        std::vector<EventSignalPtr> eventHandlers;
+        std::vector<std::shared_ptr<EventSignal>> eventHandlers;
 };
 
 /// Base classes for the event system
 class BaseEvent
 {
     public:
-        virtual ~BaseEvent();
+        virtual ~BaseEvent() {}
 
     protected:
         static std::size_t familyCounter;
@@ -103,7 +104,7 @@ class BaseReceiver
     private:
         friend class EventManager;
         
-        std::unordered_map<size_t, std::pair<std::weak_ptr<EventSignal, std::size_t>> connections;
+        std::unordered_map<size_t, std::pair<std::weak_ptr<EventSignal>, std::size_t>> connections;
 };
 
 template <typename Derived>

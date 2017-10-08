@@ -45,38 +45,9 @@ void EventManager::emit(std::unique_ptr<EventType> event)
 }
 
 template <typename EventType, typename ... EventArgs>
-void EventManager::emit(Args&& ... args)
+void EventManager::emit(EventArgs&& ... args)
 {
     EventType event = EventType(std::forward<EventArgs>(args)...);
-    auto signal = signalFor(static_cast<std::size_t>(Event<EventType>::family));
+    auto signal = signalFor(Event<EventType>::family());
     signal->emit(&event);
-}
-
-inline std::size_t EventManager::connectReceivers() const
-{
-    std::size_t size = 0;
-    for (std::shared_ptr<EventSignal> handler : eventHandlers)
-    {
-        if (handler)
-        {
-            size += handler->size();
-        }
-    }
-
-    return size;
-}
-
-inline std::shared_ptr<EventSignal>& signalFor(std::size_t handlerId)
-{
-    if (handlerId >= eventHandlers.size())
-    {
-        eventHandlers.resize(handlerId + 1);
-    }
-
-    if (!eventHandlers[handlerId])
-    {
-        eventHandlers[handlerId] = std::make_shared<EventSignal>();
-    }
-
-    return eventHandlers[handlerId];
 }
