@@ -17,6 +17,7 @@ set(SRCS
     source/Entity/Entity.cpp
     source/Entity/EntityManager.cpp
     source/EventManagement/EventManager.cpp
+    source/Systems/System.cpp
 )
 
 # Build Info
