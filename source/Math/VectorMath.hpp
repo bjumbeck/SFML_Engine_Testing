@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <SFML/System/Vector2.hpp>
 
 template<typename T>

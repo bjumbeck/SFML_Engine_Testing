@@ -8,7 +8,7 @@
 class EntityManager;
 
 // Internal class, do not use this to define components
-struct BaseComponent
+class BaseComponent
 {
     public:
         using Family = std::size_t;
@@ -31,12 +31,12 @@ struct BaseComponent
 
     protected:
         static std::size_t familyCounter;
-}
+};
 
 // User facing class, if you are defining a new component
 // use this class to derive from.
 template <typename Derived>
-struct Component : public BaseComponent
+class Component : public BaseComponent
 {
     public:
         using Ptr = ComponentPtr<Derived>;
@@ -47,7 +47,7 @@ struct Component : public BaseComponent
 
     private:
         friend class EntityManager;
-}
+};
 
 template <typename CompType, class EManager = EntityManager>
 class ComponentPtr
@@ -80,4 +80,4 @@ class ComponentPtr
 
         EManager* entityManager;
         Entity::Id owningEntityId;
-}
+};

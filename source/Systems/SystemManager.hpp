@@ -29,6 +29,7 @@ class SystemManager : private sf::NonCopyable
 
         template <typename SystemType>
         void update(const sf::Time& deltaTime);
+        
         void updateAllSystems(const sf::Time& deltaTime);
 
         void configure();

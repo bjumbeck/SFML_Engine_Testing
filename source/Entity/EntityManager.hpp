@@ -169,31 +169,33 @@ class EntityManager : private sf::NonCopyable
                 class Unpacker
                 {
                     public:
-                        explicit Unpacker(ComponentPtr<Components>& ... ptrs)
-                            : compPtrs(std::tuple<ComponentPtr<Components>& ...>(ptrs...))
+                        explicit Unpacker(EntityManager* manager, ComponentPtr<Components>& ... ptrs)
+                            : eManager(manager)
+                            , compPtrs(std::tuple<ComponentPtr<Components>& ...>(ptrs...))
                         {}
 
-                        void unpack(Entity& entity) const
+                        void unpack(const Entity& entity) const
                         {
                             unpackImpl<0, Components...>(entity);
                         }
 
                     private:
                         template <int N, typename CompType>
-                        void unpackImpl(Entity& entity) const
+                        void unpackImpl(Entity entity) const
                         {
-                            std::get<N>(compPtrs) = getComponent<CompType>(entity.getId);
+                            std::get<N>(compPtrs) = eManager->getComponent<CompType>(entity.getId());
                         }
 
                         template <int N, typename Comp1, typename Comp2, typename ... CompN>
-                        void unpackImpl(Entity& entity) const
+                        void unpackImpl(Entity entity) const
                         {
-                            std::get<N>(compPtrs) = getComponent<Comp1>();
+                            std::get<N>(compPtrs) = eManager->getComponent<Comp1>(entity.getId());
                             unpackImpl<N + 1, Comp2, CompN...>(entity);
                         }
 
                     private:
                         std::tuple<ComponentPtr<Components>& ...> compPtrs;
+                        EntityManager* eManager;
                 };
 
                 class Iterator : public ViewIterator<Iterator>
@@ -219,16 +221,16 @@ class EntityManager : private sf::NonCopyable
                 };
 
             public:
-                Iterator begin() { return Iterator(entityManager, compMask, 0, unpacker); }
-                Iterator end() { return Iterator(entityManager, compMask, entityManager->capacity(), unpacker); }
-                const Iterator begin() const { return Iterator(entityManager, compMask, 0, unpacker); }
-                const Iterator end() const { return Iterator(entityManager, compMask, entityManager->capacity(), unpacker); }
+                Iterator begin() { return Iterator(manager, compMask, 0, unpacker); }
+                Iterator end() { return Iterator(manager, compMask, manager->capacity(), unpacker); }
+                const Iterator begin() const { return Iterator(manager, compMask, 0, unpacker); }
+                const Iterator end() const { return Iterator(manager, compMask, manager->capacity(), unpacker); }
 
             private:
                 UnpackingView(EntityManager* manager, EntityManager::ComponentMask mask, ComponentPtr<Components>& ... ptrs)
                     : entityManager(manager)
                     , compMask(mask)
-                    , unpacker(ptrs...)
+                    , unpacker(manager, ptrs...)
                 {}
 
             private:
@@ -268,14 +270,14 @@ class EntityManager : private sf::NonCopyable
         template <typename CompType>
         bool hasComponent(Entity::Id id) const;
 
-        template <typename CompType, typename std::enable_if_t<!std::is_const<CompType>::value>>
+        template <typename CompType, typename = std::enable_if_t<!std::is_const<CompType>::value>>
         ComponentPtr<CompType> getComponent(Entity::Id id);
 
-        template <typename CompType, typename std::enable_if_t<std::is_const<CompType>::value>>
-        const ComponentPtr<CompType> getComponent(Entity::Id id);
+        template <typename CompType, typename = std::enable_if_t<std::is_const<CompType>::value>>
+        const ComponentPtr<CompType, const EntityManager> getComponent(Entity::Id id) const;
 
         template <typename ... Components>
-        std::tuple<ComponentPtr<Components>...> getComponents(Entity::Id);
+        std::tuple<ComponentPtr<Components>...> getComponents(const Entity::Id components);
 
         template <typename ... Components>
         std::tuple<ComponentPtr<const Components, const EntityManager>...> getComponents(Entity::Id id) const;

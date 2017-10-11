@@ -64,7 +64,7 @@ bool EntityManager::hasComponent(Entity::Id id) const
     return true;
 }
 
-template <typename CompType, typename std::enable_if_t<!std::is_const<CompType>::value>>
+template <typename CompType, typename = typename std::enable_if<!std::is_const<C>::value>::type>
 ComponentPtr<CompType> EntityManager::getComponent(Entity::Id id)
 {
     assertValidId(id);
@@ -84,8 +84,8 @@ ComponentPtr<CompType> EntityManager::getComponent(Entity::Id id)
     return ComponentPtr<CompType>(this, id);
 }
 
-template <typename CompType, typename std::enable_if_t<std::is_const<CompType>::value>>
-const ComponentPtr<CompType> EntityManager::getComponent(Entity::Id id)
+template <typename CompType, typename = typename std::enable_if<std::is_const<C>::value>::type>
+const ComponentPtr<CompType, const EntityManager> EntityManager::getComponent(Entity::Id id) const
 {
     assertValidId(id);
 

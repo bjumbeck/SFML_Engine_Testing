@@ -1,4 +1,5 @@
 #include <utility>
+#include "System.hpp"
 #include "Entity/EntityManager.hpp"
 #include "EventManagement/EventManager.hpp"
 
@@ -40,7 +41,7 @@ void SystemManager::updateAllSystems(const sf::Time& deltaTime)
 
     for (auto& pair : systems)
     {
-        pairIter.second->update(entityManager, eventManager, deltaTime);
+        pair.second->update(entityManager, eventManager, deltaTime);
     }
 }
 

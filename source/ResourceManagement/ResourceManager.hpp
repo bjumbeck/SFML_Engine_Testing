@@ -12,18 +12,18 @@ template <typename Resource, typename Identifier>
 class ResourceManager
 {
     public:
-        void LoadResource(Identifier id, const std::string& filename);
+        void loadResource(Identifier id, const std::string& filename);
 
         template <typename Parameter>
-        void LoadResource(Identifier id, const std::string& filename, const Parameter& secondParam);
+        void loadResource(Identifier id, const std::string& filename, const Parameter& secondParam);
 
-        std::shared_ptr<Resource> GetResource(Identifier id);
-
-    private:
-        void InsertResource(Identifier identifier, std::shared_ptr<Resource> resource);
+        Resource* getResource(Identifier id);
 
     private:
-        std::map<Identifier, std::shared_ptr<Resource>> resourceMap;
+        void insertResource(Identifier identifier, std::unique_ptr<Resource> resource);
+
+    private:
+        std::map<Identifier, std::unique_ptr<Resource>> resourceMap;
 };
 
 #include "ResourceManager.inl"

@@ -1,39 +1,39 @@
 #include <cassert>
 
 template <typename Resource, typename Identifier>
-void ResourceManager<Resource, Identifier>::LoadResource(Identifier id, const std::string& filename)
+void ResourceManager<Resource, Identifier>::loadResource(Identifier id, const std::string& filename)
 {
-    std::shared_ptr<Resource> resource(new Resource());
+    std::unique_ptr<Resource> resource = std::make_unique<Resource>();
     if (!resource->loadFromFile(filename))
         throw std::runtime_error("ResourceManager::LoadResource - Failed to load " + filename);
 
-    InsertResource(id, resource);
+    insertResource(id, std::move(resource));
 }
 
 template <typename Resource, typename Identifier>
 template <typename Parameter>
-void ResourceManager<Resource, Identifier>::LoadResource(Identifier id, const std::string& filename,
+void ResourceManager<Resource, Identifier>::loadResource(Identifier id, const std::string& filename,
                                                          const Parameter& secondParam)
 {
-    std::shared_ptr<Resource> resource(new Resource());
+    std::unique_ptr<Resource> resource = std::make_unique<Resource>();
     if (!resource->loadFromFile(filename, secondParam))
         throw std::runtime_error("ResourceManager::LoadResource - Failed to load " + filename);
 
-    InsertResource(id, resource);
+    insertResource(id, std::move(resource));
 }
 
 template <typename Resource, typename Identifier>
-std::shared_ptr<Resource> ResourceManager<Resource, Identifier>::GetResource(Identifier id)
+Resource* ResourceManager<Resource, Identifier>::getResource(Identifier id)
 {
     auto found = resourceMap.find(id);
     assert(found != resourceMap.end());
 
-    return found->second;
+    return found->second.get();
 }
 
 template <typename  Resource, typename Identifier>
-void ResourceManager<Resource, Identifier>::InsertResource(Identifier identifier, std::shared_ptr<Resource> resource)
+void ResourceManager<Resource, Identifier>::insertResource(Identifier identifier, std::unique_ptr<Resource> resource)
 {
-    auto inserted = resourceMap.insert(std::make_pair(identifier, resource));
+    auto inserted = resourceMap.insert(std::make_pair(identifier, std::move(resource)));
     assert(inserted.second);
 }
