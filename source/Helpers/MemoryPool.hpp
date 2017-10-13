@@ -99,7 +99,7 @@ class Pool : public BasePool
 
         virtual void destroy(std::size_t n) override
         {
-            assert(n < size);
+            assert(n < size());
             T* ptr = static_cast<T*>(get(n));
             ptr->~T();
         }

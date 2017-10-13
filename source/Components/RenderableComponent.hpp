@@ -13,8 +13,8 @@ struct RenderableComponent
     sf::FloatRect textureRect;
 };
 
-RenderableComponent::RenderableComponent(const std::string& textureFileName)
-    : vertexArray(sf::TriangleStrip, 4)
+inline RenderableComponent::RenderableComponent(const std::string& textureFileName)
+        : vertexArray(sf::TriangleStrip, 4)
 {
     texture = g_TextureManager.getResource(textureFileName);
     textureRect = sf::FloatRect(0.0f, 0.0f, 
@@ -37,9 +37,9 @@ RenderableComponent::RenderableComponent(const std::string& textureFileName)
     vertexArray[3].texCoords = sf::Vector2f(right, bottom);
 }
 
-RenderableComponent::RenderableComponent(const std::string& textureFileName, const sf::FloatRect& textureRect)
-    : vertexArray(sf::TriangleStrip, 4)
-    , textureRect(textureRect)
+inline RenderableComponent::RenderableComponent(const std::string& textureFileName, const sf::FloatRect& textureRect)
+        : vertexArray(sf::TriangleStrip, 4)
+        , textureRect(textureRect)
 {
     texture = g_TextureManager.getResource(textureFileName);
 

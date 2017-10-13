@@ -11,11 +11,7 @@
 #include "Helpers/MemoryPool.hpp"
 #include "Entity.hpp"
 #include "EventManagement/EventManager.hpp"
-
-class BaseComponent;
-
-template <typename CompType, class EManager = EntityManager>
-class ComponentPtr;
+#include "Components/Component.hpp"
 
 const int MAX_COMPONENTS = 64;
 
@@ -228,7 +224,7 @@ class EntityManager : private sf::NonCopyable
 
             private:
                 UnpackingView(EntityManager* manager, EntityManager::ComponentMask mask, ComponentPtr<Components>& ... ptrs)
-                    : entityManager(manager)
+                    : manager(manager)
                     , compMask(mask)
                     , unpacker(manager, ptrs...)
                 {}
@@ -300,7 +296,7 @@ class EntityManager : private sf::NonCopyable
         void assertValidId(Entity::Id id) const;
 
         template <typename CompType>
-        CompType* getComponentPtr(Entity::Id id) const;
+        CompType* getComponentPtr(Entity::Id id);
 
         template <typename CompType>
         const CompType* getComponentPtr(Entity::Id id) const;
@@ -341,3 +337,5 @@ class EntityManager : private sf::NonCopyable
         std::vector<uint32_t> entityVersions;
         std::vector<uint32_t> freeIds;
 };
+
+#include "EntityManager.inl"

@@ -1,4 +1,5 @@
 #include "Components/Component.hpp"
+#include "EventManagement/Events/ComponentEvents.hpp"
 
 template <typename CompType>
 static size_t EntityManager::componentFamily()
@@ -16,7 +17,7 @@ ComponentPtr<CompType> EntityManager::assignComponent(Entity::Id id, Args&& ... 
 
     // Add it into a memory pool for the component family
     Pool<CompType>* pool = accomodateComponent<CompType>();
-    new(pool->get(id.index())) C(std::forward<Args>(args) ...);
+    new(pool->get(id.index())) CompType(std::forward<Args>(args) ...);
 
     // Set the bit for the component
     entityComponentMasks[id.index()].set(family);
@@ -64,7 +65,7 @@ bool EntityManager::hasComponent(Entity::Id id) const
     return true;
 }
 
-template <typename CompType, typename = typename std::enable_if<!std::is_const<C>::value>::type>
+template <typename CompType, typename>
 ComponentPtr<CompType> EntityManager::getComponent(Entity::Id id)
 {
     assertValidId(id);
@@ -78,13 +79,13 @@ ComponentPtr<CompType> EntityManager::getComponent(Entity::Id id)
     BasePool* pool = componentPools[family];
     if (!pool || !entityComponentMasks[id.index()][family])
     {
-        return ComponentPtr<CompType>()
+        return ComponentPtr<CompType>();
     }
 
     return ComponentPtr<CompType>(this, id);
 }
 
-template <typename CompType, typename = typename std::enable_if<std::is_const<C>::value>::type>
+template <typename CompType, typename>
 const ComponentPtr<CompType, const EntityManager> EntityManager::getComponent(Entity::Id id) const
 {
     assertValidId(id);
@@ -117,7 +118,7 @@ std::tuple<ComponentPtr<const Components, const EntityManager>...> EntityManager
 }
 
 template <typename ... Components>
-View EntityManager::getEntitiesWithComponents()
+EntityManager::View EntityManager::getEntitiesWithComponents()
 {
     auto compMask = componentMask<Components...>();
 
@@ -125,7 +126,7 @@ View EntityManager::getEntitiesWithComponents()
 }
 
 template <typename ... Components>
-UnpackingView<Components...> EntityManager::getEntitiesWithComponents(ComponentPtr<Components>& ... components)
+EntityManager::UnpackingView<Components...> EntityManager::getEntitiesWithComponents(ComponentPtr<Components>& ... components)
 {
     auto compMask = componentMask<Components...>();
 
@@ -150,7 +151,7 @@ void EntityManager::unpack(Entity::Id id, ComponentPtr<CompOne>& outputCompOne, 
 }
 
 template <typename CompType>
-CompType* EntityManager::getComponentPtr(Entity::Id id) const
+CompType* EntityManager::getComponentPtr(Entity::Id id)
 {
     assertValidId(id);
 
@@ -171,8 +172,8 @@ const CompType* EntityManager::getComponentPtr(Entity::Id id) const
     return static_cast<const CompType*>(pool->get(id.index()));
 }
 
-template <CompType>
-ComponentMask EntityManager::componentMask()
+template <typename CompType>
+EntityManager::ComponentMask EntityManager::componentMask()
 {
     ComponentMask compMask;
     compMask.set(componentFamily<CompType>());
@@ -181,19 +182,19 @@ ComponentMask EntityManager::componentMask()
 }
 
 template <typename CompType1, typename CompType2, typename ... CompTypeArgs>
-ComponentMask EntityManager::componentMask()
+EntityManager::ComponentMask EntityManager::componentMask()
 {
     return componentMask<CompType1>() | componentMask<CompType2, CompTypeArgs...>();
 }
 
 template <typename CompType>
-ComponentMask EntityManager::componentMask(const ComponentPtr<CompType>& comp)
+EntityManager::ComponentMask EntityManager::componentMask(const ComponentPtr<CompType>& comp)
 {
     return componentMask<CompType>();
 }
 
 template <typename CompType1, typename ... CompTypeArgs>
-ComponentMask EntityManager::componentMask(const ComponentPtr<CompType1>& compOne, const ComponentPtr<CompTypeArgs>& ... args)
+EntityManager::ComponentMask EntityManager::componentMask(const ComponentPtr<CompType1>& compOne, const ComponentPtr<CompTypeArgs>& ... args)
 {
     return componentMask<CompType1, CompTypeArgs...>();
 }

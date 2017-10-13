@@ -7,6 +7,9 @@
 
 class EntityManager;
 
+template <typename CompType, class EManager = EntityManager>
+class ComponentPtr;
+
 // Internal class, do not use this to define components
 class BaseComponent
 {
@@ -49,7 +52,7 @@ class Component : public BaseComponent
         friend class EntityManager;
 };
 
-template <typename CompType, class EManager = EntityManager>
+template <typename CompType, class EManager>
 class ComponentPtr
 {
     public:
@@ -81,3 +84,5 @@ class ComponentPtr
         EManager* entityManager;
         Entity::Id owningEntityId;
 };
+
+#include "Component.inl"

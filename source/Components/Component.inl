@@ -13,7 +13,7 @@ template <typename CompType, typename EManager>
 inline bool ComponentPtr<CompType, EManager>::valid() const
 {
     return entityManager && 
-           entityManager->valid(owningEntityId) &&
+           entityManager->validEntity(owningEntityId) &&
            entityManager->template hasComponent<CompType>(owningEntityId);
 }
 

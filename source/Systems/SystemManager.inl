@@ -35,7 +35,7 @@ void SystemManager::update(const sf::Time& deltaTime)
     getSystem<SystemType>().update(entityManager, eventManager, deltaTime);
 }
 
-void SystemManager::updateAllSystems(const sf::Time& deltaTime)
+inline void SystemManager::updateAllSystems(const sf::Time& deltaTime)
 {
     assert(isInitialized && "Trying to call SystemManager::update before you have called SystemManager::configure().");
 
@@ -45,7 +45,7 @@ void SystemManager::updateAllSystems(const sf::Time& deltaTime)
     }
 }
 
-void SystemManager::configure()
+inline void SystemManager::configure()
 {
     for (auto& pair : systems)
     {
