@@ -11,13 +11,20 @@ class EntityManager;
 class BaseSystem : private sf::NonCopyable
 {
     public:
+        using Family = std::size_t;
+
         virtual ~BaseSystem() {}
 
         virtual void configure(EventManager& eventManager) = 0;
         virtual void update(EntityManager& entityManager, EventManager& eventManager, const sf::Time& deltaTime) = 0;
 
-    public:
-        static std::size_t familyCounter;
+    protected:
+        static Family familyCounter()
+        {
+            static Family familyCounter = 0;
+
+            return familyCounter++;
+        }
 };
 
 template <typename Derived>
@@ -27,7 +34,12 @@ class System : public BaseSystem
         virtual ~System() {}
 
     private:
-        static std::size_t family() { static std::size_t family = familyCounter++; return family; }
+        static std::size_t family() 
+        { 
+            static Family family = familyCounter(); 
+            
+            return family; 
+        }
 
     private:
         friend class SystemManager;

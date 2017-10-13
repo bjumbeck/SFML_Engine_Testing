@@ -3,7 +3,7 @@
 template <typename CompType>
 inline BaseComponent::Family Component<CompType>::family()
 {
-    static Family family = familyCounter++;
+    static Family family = familyCounter();
     assert(family < MAX_COMPONENTS);
 
     return family;

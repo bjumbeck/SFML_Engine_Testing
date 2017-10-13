@@ -16,9 +16,7 @@ set(SRCS
     source/Application/Application.cpp
     source/Entity/Entity.cpp
     source/Entity/EntityManager.cpp
-    source/Components/Component.cpp
     source/EventManagement/EventManager.cpp
-    source/Systems/System.cpp
     source/Systems/RenderSystem.cpp
     source/Systems/MovementSystem.cpp
 )

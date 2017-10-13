@@ -33,7 +33,12 @@ class BaseComponent
 
 
     protected:
-        static std::size_t familyCounter;
+        static Family familyCounter()
+        {
+            static Family familyCounter = 0;
+
+            return familyCounter++;
+        }
 };
 
 // User facing class, if you are defining a new component
