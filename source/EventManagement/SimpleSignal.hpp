@@ -128,7 +128,7 @@ private:
   }
 public:
   /// ProtoSignal constructor, connects default callback if non-nullptr.
-  ProtoSignal (const CbFunction &method) :
+  explicit ProtoSignal (const CbFunction &method) :
     callback_ring_ (nullptr)
   {
     if (method != nullptr)
@@ -227,7 +227,7 @@ struct Signal /*final*/ :
   using ProtoSignal = Lib::ProtoSignal<SignalSignature, Collector>;
   using CbFunction = typename ProtoSignal::CbFunction;
   /// Signal constructor, supports a default callback as argument.
-  Signal (const CbFunction &method = CbFunction()) : ProtoSignal (method) {}
+  explicit Signal (const CbFunction &method = CbFunction()) : ProtoSignal (method) {}
 };
 
 /// This function creates a std::function by binding @a object to the member function pointer @a method.

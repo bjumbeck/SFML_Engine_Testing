@@ -40,7 +40,7 @@ class EventManager : private sf::NonCopyable
         template <typename EventType>
         struct EventCallbackWrapper
         {
-            EventCallbackWrapper(std::function<void (const EventType&)> callback) : callback(callback) {}
+            explicit EventCallbackWrapper(std::function<void (const EventType&)>& callback) : callback(callback) {}
             void operator()(const void* event) { callback( *(static_cast<const EventType*>(event))); }
 
             std::function<void (const EventType&)> callback;
