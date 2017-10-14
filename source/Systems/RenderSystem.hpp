@@ -15,7 +15,7 @@ class RenderSystem : public System<RenderSystem>
 
         void update(EntityManager& entityManager, EventManager& eventManager, const sf::Time& deltaTime);
 
-        void render(EntityManager* entityManager);
+        void render(EntityManager& entityManager);
 
     private:
         sf::RenderTarget& renderTarget;

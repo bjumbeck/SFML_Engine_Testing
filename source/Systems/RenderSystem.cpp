@@ -17,11 +17,11 @@ void RenderSystem::update(EntityManager& entityManager, EventManager& eventManag
     // Not needed for now.
 }
 
-void RenderSystem::render(EntityManager* entityManager)
+void RenderSystem::render(EntityManager& entityManager)
 {
     ComponentPtr<RenderableComponent> renderComp;
     ComponentPtr<TransformableComponent> transComp;
-    for (Entity entity : entityManager->getEntitiesWithComponents(renderComp, transComp))
+    for (Entity entity : entityManager.getEntitiesWithComponents(renderComp, transComp))
     {
         sf::RenderStates states = sf::RenderStates::Default;
 

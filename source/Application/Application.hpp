@@ -5,9 +5,9 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-class EventManager;
-class EntityManager;
-class SystemManager;
+#include "EventManagement/EventManager.hpp"
+#include "Entity/EntityManager.hpp"
+#include "Systems/SystemManager.hpp"
 
 class Application : private sf::NonCopyable
 {
@@ -35,7 +35,7 @@ class Application : private sf::NonCopyable
 
         // Do not change the ordering of these
         // will mess up the constructor if you do.
-        std::unique_ptr<EventManager> eventManager;
-        std::unique_ptr<EntityManager> entityManager;
-        std::unique_ptr<SystemManager> systemManager;
+        EventManager eventManager;
+        EntityManager entityManager;
+        SystemManager systemManager;
 };

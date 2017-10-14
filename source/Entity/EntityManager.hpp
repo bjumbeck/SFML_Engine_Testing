@@ -53,7 +53,7 @@ class EntityManager : private sf::NonCopyable
                 {
                     if (All)
                     {
-                        std::sort(entityManager->freeIds.begin(), entityManager.freeIds.end());
+                        std::sort(entityManager->freeIds.begin(), entityManager.freeIds.end()); //-V539
                         freeCursor = 0;
                     }
                 }

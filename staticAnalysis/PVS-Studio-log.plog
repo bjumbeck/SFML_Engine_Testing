@@ -1,0 +1,1658 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Solution_Path">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SolutionPath" type="xs:string" minOccurs="0" />
+                <xs:element name="SolutionVersion" type="xs:string" minOccurs="0" />
+                <xs:element name="PlogVersion" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="ModificationDate" msdata:DateTimeMode="Utc" type="xs:dateTime" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="PVS-Studio_Analysis_Log">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FavIcon" type="xs:boolean" minOccurs="0" msdata:Ordinal="0" />
+                <xs:element name="Level" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="1" />
+                <xs:element name="DefaultOrder" type="xs:int" minOccurs="0" msdata:Ordinal="2" />
+                <xs:element name="ErrorCode" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                <xs:element name="Message" type="xs:string" msdata:Ordinal="4" />
+                <xs:element name="Project" type="xs:string" minOccurs="0" msdata:Ordinal="5" />
+                <xs:element name="ShortFile" type="xs:string" minOccurs="0" msdata:Ordinal="6" />
+                <xs:element name="Line" type="xs:int" msdata:Ordinal="7" />
+                <xs:element name="FalseAlarm" type="xs:boolean" minOccurs="0" msdata:Ordinal="8" />
+                <xs:element name="File" type="xs:string" msdata:Ordinal="9" />
+                <xs:element name="CodePrev" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="10" />
+                <xs:element name="CodeCurrent" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="11" />
+                <xs:element name="CodeNext" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="12" />
+                <xs:element name="TrialMessage" type="xs:boolean" minOccurs="0" msdata:Ordinal="13" />
+                <xs:element name="Analyzer" type="xs:int" minOccurs="0" msdata:Ordinal="14" />
+                <xs:element name="LineExtension" type="xs:string" minOccurs="0" msdata:Ordinal="15" />
+                <xs:element name="Retired" type="xs:boolean" default="false" minOccurs="0" msdata:Ordinal="16" />
+                <xs:element name="AnalyzedSourceFiles" type="xs:string" minOccurs="0" msdata:Ordinal="17" />
+              </xs:sequence>
+              <xs:attribute name="ErrorCodeNumeric" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(ErrorCode) &lt; 2 OR (SUBSTRING(ErrorCode, 1, 1) &lt;&gt; 'V'), 0, CONVERT(SUBSTRING(ErrorCode, 2, LEN(ErrorCode) - 1), 'System.UInt32'))" type="xs:unsignedInt" use="prohibited" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//PVS-Studio_Analysis_Log" />
+        <xs:field xpath="Line" />
+        <xs:field xpath="Message" />
+        <xs:field xpath="File" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Solution_Path>
+    <SolutionPath />
+    <SolutionVersion>Independent</SolutionVersion>
+    <PlogVersion>4</PlogVersion>
+    <ModificationDate>2017-10-14T00:31:15.003096Z</ModificationDate>
+  </Solution_Path>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>1</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>simplesignal.hpp</ShortFile>
+    <Line>74</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\eventmanagement\simplesignal.hpp</File>
+    <CodePrev>6253917</CodePrev>
+    <CodeCurrent>250174355</CodeCurrent>
+    <CodeNext>27674163</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\eventmanagement\eventmanager.cpp*c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>2</DefaultOrder>
+    <ErrorCode>V2005</ErrorCode>
+    <Message>C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.</Message>
+    <Project />
+    <ShortFile>simplesignal.hpp</ShortFile>
+    <Line>101</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\eventmanagement\simplesignal.hpp</File>
+    <CodePrev>4147138233</CodePrev>
+    <CodeCurrent>22609061</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>6</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\eventmanagement\eventmanager.cpp*c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>3</DefaultOrder>
+    <ErrorCode>V2005</ErrorCode>
+    <Message>C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.</Message>
+    <Project />
+    <ShortFile>simplesignal.hpp</ShortFile>
+    <Line>107</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\eventmanagement\simplesignal.hpp</File>
+    <CodePrev>2805520336</CodePrev>
+    <CodeCurrent>47635639</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>6</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\eventmanagement\eventmanager.cpp*c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>4</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>simplesignal.hpp</ShortFile>
+    <Line>115</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\eventmanagement\simplesignal.hpp</File>
+    <CodePrev>193</CodePrev>
+    <CodeCurrent>1731207582</CodeCurrent>
+    <CodeNext>3682539273</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\eventmanagement\eventmanager.cpp*c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>1</Level>
+    <DefaultOrder>5</DefaultOrder>
+    <ErrorCode>V004</ErrorCode>
+    <Message>Diagnostics from the 64-bit rule set are not entirely accurate without the appropriate 64-bit compiler. Consider utilizing 64-bit compiler if possible.</Message>
+    <Project />
+    <ShortFile xml:space="preserve"> </ShortFile>
+    <Line>1</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File xml:space="preserve"> </File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>0</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>6</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>memorypool.hpp</ShortFile>
+    <Line>80</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\helpers\memorypool.hpp</File>
+    <CodePrev>1449047193</CodePrev>
+    <CodeCurrent>362676193</CodeCurrent>
+    <CodeNext>90668289</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>7</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>memorypool.hpp</ShortFile>
+    <Line>81</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\helpers\memorypool.hpp</File>
+    <CodePrev>362676193</CodePrev>
+    <CodeCurrent>90668289</CodeCurrent>
+    <CodeNext>362634951</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>8</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>memorypool.hpp</ShortFile>
+    <Line>82</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\helpers\memorypool.hpp</File>
+    <CodePrev>90668289</CodePrev>
+    <CodeCurrent>362634951</CodeCurrent>
+    <CodeNext>1450535873</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>9</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>memorypool.hpp</ShortFile>
+    <Line>83</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\helpers\memorypool.hpp</File>
+    <CodePrev>362634951</CodePrev>
+    <CodeCurrent>1450535873</CodeCurrent>
+    <CodeNext>193</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>10</DefaultOrder>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number 32UL used: ...Version) &lt;&lt; 32UL) {}.</Message>
+    <Project />
+    <ShortFile>entity.hpp</ShortFile>
+    <Line>17</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entity.hpp</File>
+    <CodePrev>25761228</CodePrev>
+    <CodeCurrent>3181105659</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>11</DefaultOrder>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number 0xffffffffUL used: ...nternalId &amp; 0xffffffffUL; }.</Message>
+    <Project />
+    <ShortFile>entity.hpp</ShortFile>
+    <Line>25</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entity.hpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>1082321881</CodeCurrent>
+    <CodeNext>3047674013</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>12</DefaultOrder>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number 32 used: ...ternalId &gt;&gt; 32; }.</Message>
+    <Project />
+    <ShortFile>entity.hpp</ShortFile>
+    <Line>26</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entity.hpp</File>
+    <CodePrev>1082321881</CodePrev>
+    <CodeCurrent>3047674013</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>13</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>entity.hpp</ShortFile>
+    <Line>55</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entity.hpp</File>
+    <CodePrev>419239</CodePrev>
+    <CodeCurrent>949248608</CodeCurrent>
+    <CodeNext>193</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>14</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>component.hpp</ShortFile>
+    <Line>89</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\components\component.hpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>479486563</CodeCurrent>
+    <CodeNext>1717475711</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>1</Level>
+    <DefaultOrder>15</DefaultOrder>
+    <ErrorCode>V539</ErrorCode>
+    <Message>Consider inspecting iterators which are being passed as arguments to function 'sort'.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>56</Line>
+    <FalseAlarm>true</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>2310431152</CodeCurrent>
+    <CodeNext>311471</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>16</DefaultOrder>
+    <ErrorCode>V801</ErrorCode>
+    <Message>Decreased performance. It is better to redefine the second function argument as a reference. Consider replacing 'const .. mask' with 'const .. &amp;mask'.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>61</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3986322884</CodeCurrent>
+    <CodeNext>107108209</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>5</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>17</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'idIndex' to memsize type in an arithmetic expression: idIndex &lt; capacity</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>77</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>234035198</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>18</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'idIndex' to memsize type in an arithmetic expression: idIndex &lt; capacity</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>82</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>46151635</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>19</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'idIndex' of function 'at' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>92</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>3087067466</CodePrev>
+    <CodeCurrent>453657569</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>20</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>109</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>5816</CodePrev>
+    <CodeCurrent>949248608</CodeCurrent>
+    <CodeNext>858325832</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>21</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>112</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>2882111</CodePrev>
+    <CodeCurrent>1358785</CodeCurrent>
+    <CodeNext>5423163</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>22</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>1358785</CodePrev>
+    <CodeCurrent>5423163</CodeCurrent>
+    <CodeNext>193</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>23</DefaultOrder>
+    <ErrorCode>V202</ErrorCode>
+    <Message>Explicit conversion from memsize type to 32-bit integer type.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>135</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>3709696552</CodePrev>
+    <CodeCurrent>231783128</CodeCurrent>
+    <CodeNext>917610497</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>24</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>154</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>11496</CodePrev>
+    <CodeCurrent>949248608</CodeCurrent>
+    <CodeNext>858325832</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>25</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>entitymanager.hpp</ShortFile>
+    <Line>235</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.hpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>216159587</CodeCurrent>
+    <CodeNext>858325832</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>26</DefaultOrder>
+    <ErrorCode>V109</ErrorCode>
+    <Message>Implicit type conversion of return value to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>7</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>347212043</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>27</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>15</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>170675155</CodeCurrent>
+    <CodeNext>1164952173</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>28</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>16</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>170675155</CodePrev>
+    <CodeCurrent>1164952173</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>29</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'family' of function 'test' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>16</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>170675155</CodePrev>
+    <CodeCurrent>1164952173</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>30</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'id.index()' of function 'get' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>20</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>2171006056</CodePrev>
+    <CodeCurrent>2482010633</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>31</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>23</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>1246941052</CodePrev>
+    <CodeCurrent>361995599</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>32</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'family' of function 'set' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>23</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>1246941052</CodePrev>
+    <CodeCurrent>361995599</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>33</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>37</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>170675155</CodeCurrent>
+    <CodeNext>2482547921</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>34</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>40</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3788611882</CodeCurrent>
+    <CodeNext>3002437910</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>35</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>44</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>1448030677</CodeCurrent>
+    <CodeNext>87971937</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>36</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'family' of function 'reset' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>44</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>1448030677</CodeCurrent>
+    <CodeNext>87971937</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>37</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'index' of function 'destroy' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>45</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>1448030677</CodePrev>
+    <CodeCurrent>87971937</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>38</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'family' to memsize type in an arithmetic expression: family &gt;= componentPools.size()</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>54</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>170675155</CodePrev>
+    <CodeCurrent>2783505899</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>39</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>59</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3788611882</CodeCurrent>
+    <CodeNext>601027162</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>40</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>60</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>3788611882</CodePrev>
+    <CodeCurrent>601027162</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>41</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[id.index()][not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>60</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>3788611882</CodePrev>
+    <CodeCurrent>601027162</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>42</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>73</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>170675155</CodeCurrent>
+    <CodeNext>2783505899</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>43</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'family' to memsize type in an arithmetic expression: family &gt;= componentPools.size()</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>74</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>170675155</CodePrev>
+    <CodeCurrent>2783505899</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>44</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>79</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3788611882</CodeCurrent>
+    <CodeNext>601027162</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>45</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>80</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>3788611882</CodePrev>
+    <CodeCurrent>601027162</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>46</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[id.index()][not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>80</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>3788611882</CodePrev>
+    <CodeCurrent>601027162</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>47</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'family' to memsize type in an arithmetic expression: family &gt;= componentPools.size()</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>94</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>170675155</CodePrev>
+    <CodeCurrent>2783505899</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>48</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>99</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3788611882</CodeCurrent>
+    <CodeNext>601027162</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>49</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>100</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>3788611882</CodePrev>
+    <CodeCurrent>601027162</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>50</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[id.index()][not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>100</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>3788611882</CodePrev>
+    <CodeCurrent>601027162</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>51</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'id.index()' of function 'get' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>161</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3963676041</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>52</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'id.index()' of function 'get' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>172</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3102654977</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>53</DefaultOrder>
+    <ErrorCode>V103</ErrorCode>
+    <Message>Implicit type conversion from memsize to 32-bit type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>205</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>1747733463</CodeCurrent>
+    <CodeNext>2834147723</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>54</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'family' to memsize type in an arithmetic expression: componentPools.size() &lt;= family</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>206</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>1747733463</CodePrev>
+    <CodeCurrent>2834147723</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>55</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'family + 1' of function 'resize' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>208</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>3049419170</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>56</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>211</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>1104258918</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>57</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'indexCounter' of function 'expand' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>214</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>4100656048</CodePrev>
+    <CodeCurrent>1330505160</CodeCurrent>
+    <CodeNext>708111173</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>58</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>215</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>1330505160</CodePrev>
+    <CodeCurrent>708111173</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>59</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: componentPools[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.inl</ShortFile>
+    <Line>218</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.inl</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>1725448135</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp*c:\development\c++\testinggrounds\source\entity\entity.cpp*c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>60</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityVersions[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>22</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>68647776</CodePrev>
+    <CodeCurrent>2923674991</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>61</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityVersions[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>28</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>20074625</CodePrev>
+    <CodeCurrent>1101812995</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>62</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityVersions[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>39</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>1171420971</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>63</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>47</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>4264905932</CodePrev>
+    <CodeCurrent>3387506712</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>64</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'index' of function 'destroy' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>55</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>87971937</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>65</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityComponentMasks[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>59</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3910087968</CodeCurrent>
+    <CodeNext>598823945</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>66</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityVersions[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>60</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>3910087968</CodePrev>
+    <CodeCurrent>598823945</CodeCurrent>
+    <CodeNext>1285328481</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>67</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'id.index()' to memsize type in an arithmetic expression: id.index() &lt; entityVersions.size()</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>73</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>2128148564</CodeCurrent>
+    <CodeNext>2253556683</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>68</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityVersions[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>74</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>2128148564</CodePrev>
+    <CodeCurrent>2253556683</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>69</DefaultOrder>
+    <ErrorCode>V809</ErrorCode>
+    <Message>Verifying that a pointer value is not NULL is not required. The 'if (pool)' check can be removed.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>90</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>11573</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>5</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>70</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'id.index()' to memsize type in an arithmetic expression: id.index() &lt; entityComponentMasks.size()</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>111</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>1377686583</CodeCurrent>
+    <CodeNext>4200466388</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>71</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: entityVersions[not a memsize-type]. Use memsize type instead.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>112</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>1377686583</CodePrev>
+    <CodeCurrent>4200466388</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>72</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'id.index()' of function 'at' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>124</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3912246644</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>73</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'index' to memsize type in an arithmetic expression: entityComponentMasks.size() &lt;= index</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>129</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>4103724785</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>74</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'index + 1' of function 'resize' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>131</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>3529960870</CodeCurrent>
+    <CodeNext>3637701060</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>75</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'index + 1' of function 'resize' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>132</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>3529960870</CodePrev>
+    <CodeCurrent>3637701060</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>76</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'index + 1' of function 'expand' to memsize type.</Message>
+    <Project />
+    <ShortFile>entitymanager.cpp</ShortFile>
+    <Line>138</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\entity\entitymanager.cpp</File>
+    <CodePrev>123</CodePrev>
+    <CodeCurrent>175795669</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>77</DefaultOrder>
+    <ErrorCode>V109</ErrorCode>
+    <Message>Implicit type conversion of return value 'family' to memsize type.</Message>
+    <Project />
+    <ShortFile>system.hpp</ShortFile>
+    <Line>41</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\systems\system.hpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>353857</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\systems\movementsystem.cpp*c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\main.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>78</DefaultOrder>
+    <ErrorCode>V2009</ErrorCode>
+    <Message>Consider passing the 'entity' argument as a constant reference.</Message>
+    <Project />
+    <ShortFile>movementsystem.cpp</ShortFile>
+    <Line>44</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\systems\movementsystem.cpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>1357294731</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>6</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>79</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project />
+    <ShortFile>renderablecomponent.hpp</ShortFile>
+    <Line>12</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\components\renderablecomponent.hpp</File>
+    <CodePrev>1000973660</CodePrev>
+    <CodeCurrent>41396625</CodeCurrent>
+    <CodeNext>1341390327</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>c:\development\c++\testinggrounds\source\systems\rendersystem.cpp*c:\development\c++\testinggrounds\source\application\application.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>80</DefaultOrder>
+    <ErrorCode>V2009</ErrorCode>
+    <Message>Consider passing the 'entityManager' argument as a constant reference.</Message>
+    <Project />
+    <ShortFile>rendersystem.cpp</ShortFile>
+    <Line>20</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>c:\development\c++\testinggrounds\source\systems\rendersystem.cpp</File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>3180380841</CodeCurrent>
+    <CodeNext>123</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>6</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+</NewDataSet>
