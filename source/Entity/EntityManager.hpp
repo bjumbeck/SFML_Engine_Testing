@@ -277,7 +277,7 @@ class EntityManager : private sf::NonCopyable
         const ComponentPtr<CompType, const EntityManager> getComponent(Entity::Id id) const;
 
         template <typename ... Components>
-        std::tuple<ComponentPtr<Components>...> getComponents(const Entity::Id components);
+        std::tuple<ComponentPtr<Components>...> getComponents(const Entity::Id id);
 
         template <typename ... Components>
         std::tuple<ComponentPtr<const Components, const EntityManager>...> getComponents(Entity::Id id) const;
