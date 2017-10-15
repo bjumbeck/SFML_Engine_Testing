@@ -1,5 +1,12 @@
 #pragma once
 
+// FIXME: Refactor to use std::unique_ptr. There is no reason why
+// we should be using std::shared_ptr here since even though other
+// systems might need to access other systems (Not ideal) they by 
+// no means should be in a ownership position. That ownership position
+// falls solely on the SystemManager. So we can use unique_ptr and 
+// raw non-owning pointers instead.
+
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
 #include <unordered_map>

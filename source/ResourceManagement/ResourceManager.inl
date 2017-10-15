@@ -1,7 +1,7 @@
 #include <cassert>
 
 template <typename Resource, typename Identifier>
-void ResourceManager<Resource, Identifier>::loadResource(Identifier id, const std::string& filename)
+void ResourceManager<Resource, Identifier>::loadResource(const Identifier& id, const std::string& filename)
 {
     std::unique_ptr<Resource> resource = std::make_unique<Resource>();
     if (!resource->loadFromFile(filename))
@@ -12,7 +12,7 @@ void ResourceManager<Resource, Identifier>::loadResource(Identifier id, const st
 
 template <typename Resource, typename Identifier>
 template <typename Parameter>
-void ResourceManager<Resource, Identifier>::loadResource(Identifier id, const std::string& filename,
+void ResourceManager<Resource, Identifier>::loadResource(const Identifier& id, const std::string& filename,
                                                          const Parameter& secondParam)
 {
     std::unique_ptr<Resource> resource = std::make_unique<Resource>();
@@ -23,7 +23,13 @@ void ResourceManager<Resource, Identifier>::loadResource(Identifier id, const st
 }
 
 template <typename Resource, typename Identifier>
-Resource* ResourceManager<Resource, Identifier>::getResource(Identifier id)
+void ResourceManager<Resource, Identifier>::unloadResources()
+{
+    resourceMap.clear();
+}
+
+template <typename Resource, typename Identifier>
+Resource* ResourceManager<Resource, Identifier>::getResource(const Identifier& id)
 {
     auto found = resourceMap.find(id);
     assert(found != resourceMap.end());
@@ -32,8 +38,8 @@ Resource* ResourceManager<Resource, Identifier>::getResource(Identifier id)
 }
 
 template <typename  Resource, typename Identifier>
-void ResourceManager<Resource, Identifier>::insertResource(Identifier identifier, std::unique_ptr<Resource> resource)
+void ResourceManager<Resource, Identifier>::insertResource(const Identifier& id, std::unique_ptr<Resource> resource)
 {
-    auto inserted = resourceMap.insert(std::make_pair(identifier, std::move(resource)));
+    auto inserted = resourceMap.insert(std::make_pair(id, std::move(resource)));
     assert(inserted.second);
 }

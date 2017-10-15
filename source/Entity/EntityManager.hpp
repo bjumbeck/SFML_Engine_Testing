@@ -1,5 +1,8 @@
 #pragma once
 
+// TODO: This file and the inline file is a bit of a mess at the moment, clean this up 
+// when you have a few hours to make the design more manageable.
+
 #include <SFML/System/NonCopyable.hpp>
 #include <cstdint>
 #include <vector>
@@ -13,7 +16,7 @@
 #include "EventManagement/EventManager.hpp"
 #include "Components/Component.hpp"
 
-const int MAX_COMPONENTS = 64;
+const int MAX_COMPONENTS = 64; // TODO: Move to configuration file when it is up and running
 
 class EntityManager : private sf::NonCopyable
 {
@@ -24,6 +27,7 @@ class EntityManager : private sf::NonCopyable
         // Note: All this below is just to make working
         // with the entity manager more easy. 
         //************************************************
+
         // An iterator over the entities in EntityManager (Through the views below)
         // If All is true then it will iterate over all entities and  
         // ignore entity masks.
@@ -179,13 +183,13 @@ class EntityManager : private sf::NonCopyable
                         template <int N, typename CompType>
                         void unpackImpl(Entity entity) const
                         {
-                            std::get<N>(compPtrs) = eManager->getComponent<CompType>(entity.getId());
+                            std::get<N>(compPtrs) = eManager->getComponent<CompType>(entity.id());
                         }
 
                         template <int N, typename Comp1, typename Comp2, typename ... CompN>
                         void unpackImpl(Entity entity) const
                         {
-                            std::get<N>(compPtrs) = eManager->getComponent<Comp1>(entity.getId());
+                            std::get<N>(compPtrs) = eManager->getComponent<Comp1>(entity.id());
                             unpackImpl<N + 1, Comp2, CompN...>(entity);
                         }
 

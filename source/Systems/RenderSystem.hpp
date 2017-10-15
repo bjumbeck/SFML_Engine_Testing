@@ -11,9 +11,9 @@ class RenderSystem : public System<RenderSystem>
 {
     public:
         explicit RenderSystem(sf::RenderTarget& target);
+        
         void configure(EventManager& eventManager) override;
-
-        void update(EntityManager& entityManager, EventManager& eventManager, const sf::Time& deltaTime);
+        void update(EntityManager& entityManager, EventManager& eventManager, const sf::Time& deltaTime) override;
 
         void render(EntityManager& entityManager);
 

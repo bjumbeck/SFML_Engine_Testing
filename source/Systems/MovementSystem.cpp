@@ -14,7 +14,7 @@ void MovementSystem::update(EntityManager& entityManager, EventManager& eventMan
     for (Entity& entity : entityManager.getEntitiesWithComponents(transComp, movementComp))
     {
         // First handle entities that have a steering component
-        if (entityManager.hasComponent<SteeringComponent>(entity.getId()))
+        if (entityManager.hasComponent<SteeringComponent>(entity.id()))
         {
             sf::Vector2f steeringForce = calculateSteering(entity, entityManager);
             sf::Vector2f acceleration = steeringForce / movementComp->mass;
@@ -45,9 +45,9 @@ sf::Vector2f MovementSystem::calculateSteering(Entity& entity, EntityManager& en
 {
     sf::Vector2f steeringForce;
 
-    ComponentPtr<SteeringComponent> steeringComp = entityManager.getComponent<SteeringComponent>(entity.getId());
-    ComponentPtr<MovementComponent> movementComp = entityManager.getComponent<MovementComponent>(entity.getId());
-    ComponentPtr<TransformableComponent> transComp = entityManager.getComponent<TransformableComponent>(entity.getId());
+    ComponentPtr<SteeringComponent> steeringComp = entityManager.getComponent<SteeringComponent>(entity.id());
+    ComponentPtr<MovementComponent> movementComp = entityManager.getComponent<MovementComponent>(entity.id());
+    ComponentPtr<TransformableComponent> transComp = entityManager.getComponent<TransformableComponent>(entity.id());
 
     if ((steeringComp->behaviorFlags & BehaviorType::Seek) == BehaviorType::Seek)
     {
@@ -105,7 +105,7 @@ sf::Vector2f MovementSystem::arriveBehavior(const ComponentPtr<SteeringComponent
     if (distance > 0.75)
     {
         // Tweak this to play around with the deceleration speeds.
-        const float decelerationTweaker = 0.3;
+        const float decelerationTweaker = 0.3f;
 
         float speed = distance / (static_cast<float>(steering->arriveDeceleration) * decelerationTweaker);
         speed = std::min(speed, movement->maxSpeed);

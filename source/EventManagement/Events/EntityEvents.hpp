@@ -5,7 +5,7 @@
 
 struct EntityCreatedEvent : public Event<EntityCreatedEvent>
 {
-    explicit EntityCreatedEvent(Entity entity) : entity(entity) {}
+    explicit EntityCreatedEvent(const Entity& entity) : entity(entity) {}
     virtual ~EntityCreatedEvent() {}
 
     Entity entity;
@@ -13,7 +13,7 @@ struct EntityCreatedEvent : public Event<EntityCreatedEvent>
 
 struct EntityDestroyedEvent : public Event<EntityDestroyedEvent>
 {
-    explicit EntityDestroyedEvent(Entity entity) : entity(entity) {}
+    explicit EntityDestroyedEvent(const Entity& entity) : entity(entity) {}
     virtual ~EntityDestroyedEvent() {}
 
     Entity entity;

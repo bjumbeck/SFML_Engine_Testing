@@ -2,21 +2,21 @@
 
 #include <memory>
 #include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "EventManagement/EventManager.hpp"
-#include "Entity/EntityManager.hpp"
-#include "Systems/SystemManager.hpp"
+class EventManager;
+class EntityManager;
+class SystemManager;
 
 class Application : private sf::NonCopyable
 {
     public:
+        ~Application();
         static Application& getInstance() { static Application instance; return instance; }
         Application(const Application&) = delete;
         void operator=(const Application&) = delete;
-        void runApplication();
 
+        void runApplication();
         const sf::RenderWindow& getWindow() const { return window; } 
 
     private:
@@ -35,7 +35,7 @@ class Application : private sf::NonCopyable
 
         // Do not change the ordering of these
         // will mess up the constructor if you do.
-        EventManager eventManager;
-        EntityManager entityManager;
-        SystemManager systemManager;
+        std::unique_ptr<EventManager> eventManager;
+        std::unique_ptr<EntityManager> entityManager;
+        std::unique_ptr<SystemManager> systemManager;
 };

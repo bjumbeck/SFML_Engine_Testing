@@ -1,6 +1,5 @@
 #pragma once
 
-#include <SFML/System/Vector2.hpp>
 #include "System.hpp"
 #include "Components/Component.hpp"
 #include "Components/TransformableComponent.hpp"
@@ -18,9 +17,7 @@ class MovementSystem : public System<MovementSystem>
 
     private:
         // Steering Functionality
-        // TODO: Seperate this into another system in the future possibly?
-        // TODO: Figure out a better design for the steering functions
-        // to many parameters but also don't wanna pass entity manager all the time.
+        // TODO: Refactor this a bit? The way we are passing component pointers in seems off to me.
         sf::Vector2f calculateSteering(Entity& entity, EntityManager& entityManager);
 
         sf::Vector2f seekBehavior(const ComponentPtr<SteeringComponent>& steering,

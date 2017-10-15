@@ -1,29 +1,31 @@
 #pragma once
 
 // TODO: Ended up just using the resource manager from the SFML book as a place
-// holder until I can get the time to create a better solution for my particular case.
+// holder until I can get the time to create a better solution for my particular use case.
 
 #include <string>
 #include <memory>
-#include <map>
+#include <unordered_map>
 #include <SFML/Graphics/Texture.hpp>
 
 template <typename Resource, typename Identifier>
 class ResourceManager
 {
     public:
-        void loadResource(Identifier id, const std::string& filename);
+        void loadResource(const Identifier& id, const std::string& filename);
 
         template <typename Parameter>
-        void loadResource(Identifier id, const std::string& filename, const Parameter& secondParam);
+        void loadResource(const Identifier& id, const std::string& filename, const Parameter& secondParam);
 
-        Resource* getResource(Identifier id);
+        void unloadResources();
+
+        Resource* getResource(const Identifier& id);
 
     private:
-        void insertResource(Identifier identifier, std::unique_ptr<Resource> resource);
+        void insertResource(const Identifier& id, std::unique_ptr<Resource> resource);
 
     private:
-        std::map<Identifier, std::unique_ptr<Resource>> resourceMap;
+        std::unordered_map<Identifier, std::unique_ptr<Resource>> resourceMap;
 };
 
 #include "ResourceManager.inl"

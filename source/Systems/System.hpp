@@ -34,7 +34,7 @@ class System : public BaseSystem
         virtual ~System() {}
 
     private:
-        static std::size_t family() 
+        static Family family() 
         { 
             static Family family = familyCounter(); 
             

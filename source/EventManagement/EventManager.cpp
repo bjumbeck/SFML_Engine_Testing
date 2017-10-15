@@ -1,11 +1,11 @@
 #include "EventManager.hpp"
 
-std::size_t BaseEvent::familyCounter = 0;
+BaseEvent::Family BaseEvent::familyCounter = 0;
 
 std::size_t EventManager::connectReceivers() const
 {
     std::size_t size = 0;
-    for (std::shared_ptr<EventSignal> handler : eventHandlers)
+    for (const std::shared_ptr<EventSignal>& handler : eventHandlers)
     {
         if (handler)
         {

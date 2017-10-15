@@ -28,7 +28,9 @@ class BasePool
 {
     public:
         explicit BasePool(std::size_t elementSize, std::size_t chunkSize = 8192)
-            : elementSize(elementSize), chunkSize(chunkSize), totalCapacity(0) {}
+            : elementSize(elementSize), chunkSize(chunkSize), totalCapacity(0) 
+        {}
+            
         virtual ~BasePool()
         {
             for (char* ptr : blocks)

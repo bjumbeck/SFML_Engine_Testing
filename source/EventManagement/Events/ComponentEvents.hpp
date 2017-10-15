@@ -7,7 +7,7 @@
 template <typename CompType>
 struct ComponentAddedEvent : public Event<ComponentAddedEvent<CompType>>
 {
-    ComponentAddedEvent(Entity entity, ComponentPtr<CompType> component)
+    ComponentAddedEvent(const Entity& entity, const ComponentPtr<CompType>& component)
         : entity(entity)
         , component(component)
     {}
@@ -19,7 +19,7 @@ struct ComponentAddedEvent : public Event<ComponentAddedEvent<CompType>>
 template <typename CompType>
 struct ComponentRemovedEvent : public Event<ComponentRemovedEvent<CompType>>
 {
-    ComponentRemovedEvent(Entity entity, ComponentPtr<CompType> component)
+    ComponentRemovedEvent(const Entity& entity, const ComponentPtr<CompType>& component)
         : entity(entity)
         , component(component)
     {}

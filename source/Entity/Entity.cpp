@@ -4,16 +4,16 @@
 const Entity::Id Entity::INVALID_ID;
 
 Entity::Entity()
-    : id(INVALID_ID)
+    : internalId(INVALID_ID)
     , entityManager(nullptr)
 {}
 
 Entity::Entity(EntityManager* manager, Entity::Id paramId)
-    : id(paramId)
+    : internalId(paramId)
     , entityManager(manager)
 {}
 
 bool Entity::valid() const
 {
-    return entityManager && entityManager->validEntity(id);
+    return entityManager && entityManager->validEntity(internalId);
 }

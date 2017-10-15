@@ -80,7 +80,7 @@ void EntityManager::reset()
     // every single entity the manager is tracking.
     for (Entity entity : entitiesForDebugging())
     {
-        destroyEntity(entity.getId());
+        destroyEntity(entity.id());
     }
 
     // Delete all the memory pools that hold the components

@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <utility>
 #include <SFML/System/NonCopyable.hpp>
+
 #include "SimpleSignal.hpp"
 
 using EventSignal = Simple::Signal<void (const void*)>;
@@ -54,19 +55,21 @@ class EventManager : private sf::NonCopyable
 class BaseEvent
 {
     public:
+        using Family = std::size_t;
+
         virtual ~BaseEvent() {}
 
     protected:
-        static std::size_t familyCounter;
+        static Family familyCounter;
 };
 
 template <typename DerivedEvent>
 class Event : public BaseEvent
 {
     public:
-        static std::size_t family()
+        static Family family()
         {
-            static std::size_t family = familyCounter++;
+            static Family family = familyCounter++;
 
             return family;
         }
@@ -77,7 +80,7 @@ class BaseReceiver
     public:
         virtual ~BaseReceiver()
         {
-            for (auto connection : connections)
+            for (const auto& connection : connections)
             {
                 auto& ptr = connection.second.first;
                 if (!ptr.expired())
@@ -90,7 +93,7 @@ class BaseReceiver
         std::size_t connectedSignals() const
         {
             std::size_t size = 0;
-            for (auto connection : connections)
+            for (const auto& connection : connections)
             {
                 if (!connection.second.first.expired())
                 {

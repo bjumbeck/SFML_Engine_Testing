@@ -5,7 +5,7 @@
 
 struct RenderableComponent
 {
-    RenderableComponent(const std::string& textureFileName);
+    explicit RenderableComponent(const std::string& textureFileName);
     RenderableComponent(const std::string& textureFileName, const sf::FloatRect& textureRect);
 
     sf::VertexArray vertexArray;
