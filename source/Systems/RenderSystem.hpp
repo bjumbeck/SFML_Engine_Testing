@@ -19,4 +19,8 @@ class RenderSystem : public System<RenderSystem>
 
     private:
         sf::RenderTarget& renderTarget;
+        
+        #ifndef NDEBUG
+        bool debugDraw;
+        #endif
 };

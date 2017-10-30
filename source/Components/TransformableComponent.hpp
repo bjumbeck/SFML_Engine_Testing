@@ -1,25 +1,18 @@
 #pragma once
 
-#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/Transformable.hpp>
 
-struct TransformableComponent
+struct TransformableComponent : public sf::Transformable
 {
-    TransformableComponent()
-        : position(0.0f, 0.0f)
-        , scale(1.0f, 1.0f)
-        , rotation(0.0f)
-    {}
-
+    TransformableComponent() = default;
     TransformableComponent(const sf::Vector2f& position,
                            const float rotation = 0.0f,
-                           const sf::Vector2f& scale = sf::Vector2f(1.0f, 1.0f))
-        : position(position)
-        , rotation(rotation)
-        , scale(scale)
-    {}
-
-    // TODO: Replace this with sf::Transform
-    sf::Vector2f position;
-    sf::Vector2f scale;
-    float rotation;
+                           const sf::Vector2f& scale = sf::Vector2f(1.0f, 1.0f),
+                           const sf::Vector2f& origin = sf::Vector2f())
+    {
+        setPosition(position);
+        setRotation(rotation);
+        setScale(scale);
+        setOrigin(origin);
+    }
 };

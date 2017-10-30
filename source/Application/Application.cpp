@@ -38,7 +38,9 @@ Application::Application()
     // Test 1: Rendering - Adding the Transformable and Renderable components to an entity will 
     // make it be drawn.
     g_TextureManager.loadResource("TestSprite.png", "Assets/Textures/TestSprite.png");
-    entityManager->assignComponent<TransformableComponent>(playerTest.id(), sf::Vector2f(100.0f, 100.0f));
+    sf::Texture* texture = g_TextureManager.getResource("TestSprite.png");
+    sf::Vector2f origin(texture->getSize().x / 2.0f, texture->getSize().y / 2.0f);
+    entityManager->assignComponent<TransformableComponent>(playerTest.id(), sf::Vector2f(100.0f, 100.0f), 0, sf::Vector2f(1.0f, 1.0f), origin);
     entityManager->assignComponent<RenderableComponent>(playerTest.id(), "TestSprite.png");
 
     // Test 2: Movement - Adding the Movement component to an entity will allow for either Dynamic Movement either through

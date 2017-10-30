@@ -37,7 +37,7 @@ void MovementSystem::update(EntityManager& entityManager, EventManager& eventMan
         }
 
         // Finally apply the movement to the entity position
-        transComp->position += movementComp->velocity * deltaTime.asSeconds();
+        transComp->move(movementComp->velocity * deltaTime.asSeconds());
     }
 }
 
@@ -71,7 +71,7 @@ sf::Vector2f MovementSystem::seekBehavior(const ComponentPtr<SteeringComponent>&
                                           const ComponentPtr<MovementComponent>& movement,
                                           const ComponentPtr<TransformableComponent>& transform)
 {
-    sf::Vector2f desiredVelocity = UnitVector(steering->seekTarget - transform->position) * movement->maxSpeed;
+    sf::Vector2f desiredVelocity = UnitVector(steering->seekTarget - transform->getPosition()) * movement->maxSpeed;
 
     return desiredVelocity - movement->velocity;
 }
@@ -83,9 +83,9 @@ sf::Vector2f MovementSystem::fleeBehavior(const ComponentPtr<SteeringComponent>&
     sf::Vector2f desiredVelocity;
 
     const float fleeDistanceSq = std::pow(steering->fleePanicDistance, 2);
-    if (DistanceSquared(transform->position, steering->fleeTarget) <= fleeDistanceSq)
+    if (DistanceSquared(transform->getPosition(), steering->fleeTarget) <= fleeDistanceSq)
     {
-        desiredVelocity = UnitVector(transform->position - steering->fleeTarget) * movement->maxSpeed;
+        desiredVelocity = UnitVector(transform->getPosition() - steering->fleeTarget) * movement->maxSpeed;
     }
 
     return desiredVelocity - movement->velocity;
@@ -96,7 +96,7 @@ sf::Vector2f MovementSystem::arriveBehavior(const ComponentPtr<SteeringComponent
                                             const ComponentPtr<TransformableComponent>& transform)
 {
     sf::Vector2f desiredVelocity = sf::Vector2f(0.0f, 0.0f);
-    sf::Vector2f toTarget = steering->arrivePosition - transform->position;
+    sf::Vector2f toTarget = steering->arrivePosition - transform->getPosition();
     float distance = Length(toTarget);
 
     // FIXME: This is a hack to make it correctly stop when it is 
